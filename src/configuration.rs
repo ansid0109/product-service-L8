@@ -9,12 +9,18 @@ pub struct Settings {
     pub wasm_bin_path: PathBuf,
     tcp_listener: Option<TcpListener>,
     pub ai_service_url: String,
+    pub mongodb_uri: String,
+    pub mongodb_database: String,
+    pub mongodb_collection: String,
 }
 
 impl Settings {
     pub fn new() -> Self {
         let wasm_bin_path_env = var("WASM_RULE_ENGINE_PATH").unwrap_or_else(|_| "./tests/rule_engine.wasm".to_string());
         let ai_service_url = std::env::var("AI_SERVICE_URL").unwrap_or_else(|_| "http://127.0.0.1:5001".to_string());
+        let mongodb_uri = std::env::var("MONGODB_URI").unwrap_or_else(|_| "mongodb://127.0.0.1:27017".to_string());
+        let mongodb_database = std::env::var("MONGODB_DATABASE").unwrap_or_else(|_| "product_service".to_string());
+        let mongodb_collection = std::env::var("MONGODB_COLLECTION").unwrap_or_else(|_| "products".to_string());
         Settings {
             max_size: 262_144,
             log_level: "info".to_string(),
@@ -22,7 +28,10 @@ impl Settings {
             wasm_rules_engine_enabled: false,
             wasm_bin_path: PathBuf::from(wasm_bin_path_env),
             tcp_listener: None,
-            ai_service_url: ai_service_url.trim_end_matches('/').to_string()
+            ai_service_url: ai_service_url.trim_end_matches('/').to_string(),
+            mongodb_uri,
+            mongodb_database,
+            mongodb_collection,
         }
     }
 

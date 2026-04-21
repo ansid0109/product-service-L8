@@ -2,6 +2,10 @@ use crate::model::Product;
 use crate::configuration::Settings;
 
 pub fn fetch_products(_settings: &Settings) -> Vec<Product> {
+    initial_products()
+}
+
+pub fn initial_products() -> Vec<Product> {
     vec![
         Product {
             id: 1,

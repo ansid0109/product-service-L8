@@ -4,15 +4,22 @@ This is a Rust app that simulates a product catalog. It is meant to be used in c
 
 This app is a simple REST API that allows you to get a list of products, get a single product, update a product, and add a product.
 
-Products are loaded into memory and not persisted. So if the app is restarted, the products will be reloaded.
+Products are persisted in MongoDB. On startup, the service seeds the original product catalog if those products (matched by `id`) do not already exist.
 
 ## Running the app locally
 
-The app does not rely on any other services, so you can run it locally without any other services running.
+The app relies on MongoDB for persistence.
 
 ### Prerequisites
 
 - [Rust](https://www.rust-lang.org/tools/install)
+- [MongoDB](https://www.mongodb.com/docs/manual/installation/)
+
+### Environment variables
+
+- `MONGODB_URI` (default: `mongodb://127.0.0.1:27017`)
+- `MONGODB_DATABASE` (default: `product_service`)
+- `MONGODB_COLLECTION` (default: `products`)
 
 ### Running the app
 

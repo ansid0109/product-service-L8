@@ -4,25 +4,33 @@ use actix_web::dev::Server;
 use actix_web::middleware::Logger;
 use actix_web::{middleware, web, App, HttpServer};
 
-
-use std::sync::Mutex;
+use mongodb::bson::doc;
+use mongodb::Collection;
+use mongodb::Client;
 use crate::configuration::Settings;
 use crate::routes::*;
 use crate::model::Product;
-use crate::data::fetch_products;
+use crate::data::initial_products;
 
 
-pub fn run(mut settings: Settings) -> Result<Server, std::io::Error> {
-    
-    let products = fetch_products(&settings);
+pub async fn run(mut settings: Settings) -> Result<Server, std::io::Error> {
+    let client = Client::with_uri_str(&settings.mongodb_uri)
+        .await
+        .map_err(|err| std::io::Error::new(std::io::ErrorKind::Other, format!("Failed to connect to MongoDB: {err}")))?;
+    let collection: Collection<Product> = client
+        .database(&settings.mongodb_database)
+        .collection(&settings.mongodb_collection);
+
+    seed_initial_products(&collection)
+        .await
+        .map_err(|err| std::io::Error::new(std::io::ErrorKind::Other, format!("Failed to seed products: {err}")))?;
 
     let listener = settings.get_tcp_listener()?;
     let port = listener.local_addr().unwrap().port();
     println!("Listening on http://0.0.0.0:{}", port);
 
-    
     let product_state = web::Data::new(AppState {
-        products: Mutex::new(products.to_vec()),
+        products_collection: collection,
         settings: settings,
     });
 
@@ -60,8 +68,22 @@ pub fn run(mut settings: Settings) -> Result<Server, std::io::Error> {
     Ok(server)
 }
 
+async fn seed_initial_products(collection: &Collection<Product>) -> mongodb::error::Result<()> {
+    for product in initial_products() {
+        collection
+            .update_one(
+                doc! { "id": product.id },
+                doc! { "$setOnInsert": mongodb::bson::to_document(&product)? },
+            )
+            .upsert(true)
+            .await?;
+    }
+
+    Ok(())
+}
+
 pub struct AppState {
-    pub products: Mutex<Vec<Product>>,
+    pub products_collection: Collection<Product>,
     pub settings: Settings,
 }
 
