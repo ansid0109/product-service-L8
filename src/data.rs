@@ -9,73 +9,73 @@ pub fn initial_products() -> Vec<Product> {
     vec![
         Product {
             id: 1,
-            name: "Contoso Catnip's Friend".to_string(),
-            price: 9.99,
-            description: "Watch your feline friend embark on a fishing adventure with Contoso Catnip's Friend toy. Packed with irresistible catnip and dangling fish lure.".to_string(),
-            image: "/catnip.jpg".to_string()
+            name: "UltraHD 55\" 4K Smart TV".to_string(),
+            price: 499.99,
+            description: "Bring movies, sports, and gaming to life with this 55-inch 4K Smart TV featuring HDR support, built-in streaming apps, and voice control compatibility.".to_string(),
+            image: "/tv-55-4k.jpg".to_string()
         },
         Product {
             id: 2,
-            name: "Salty Sailor's Squeaky Squid".to_string(),
-            price: 6.99,
-            description: "Let your dog set sail with the Salty Sailor's Squeaky Squid. This interactive toy provides hours of fun, featuring multiple squeakers and crinkle tentacles.".to_string(),
-            image: "/squid.jpg".to_string()
+            name: "Noise-Canceling Wireless Headphones".to_string(),
+            price: 249.99,
+            description: "Enjoy immersive sound with active noise cancellation, all-day comfort, and up to 35 hours of battery life for travel, work, and entertainment.".to_string(),
+            image: "/wireless-headphones.jpg".to_string()
         },
         Product {
             id: 3,
-            name: "Mermaid's Mice Trio".to_string(),
-            price: 12.99,
-            description: "Entertain your kitty with the Mermaid's Mice Trio. These adorable plush mice are dressed as mermaids and filled with catnip to captivate their curiosity.".to_string(),
-            image: "/mermaid.jpg".to_string()
+            name: "Gaming Laptop 15.6\" RTX Edition".to_string(),
+            price: 1299.99,
+            description: "Power through modern games and creative workloads with a high-refresh display, dedicated graphics, fast SSD storage, and advanced cooling.".to_string(),
+            image: "/gaming-laptop.jpg".to_string()
         },
         Product {
             id: 4,
-            name: "Ocean Explorer's Puzzle Ball".to_string(),
-            price: 11.99,
-            description: "Challenge your pet's problem-solving skills with the Ocean Explorer's Puzzle Ball. This interactive toy features hidden compartments and treats, providing mental stimulation and entertainment.".to_string(),
-            image: "/ocean.jpg".to_string()
+            name: "French Door Smart Refrigerator".to_string(),
+            price: 1799.99,
+            description: "Keep groceries fresh with spacious storage, adjustable shelving, and Wi-Fi controls that let you monitor and adjust settings from your phone.".to_string(),
+            image: "/smart-refrigerator.jpg".to_string()
         },
         Product {
             id: 5,
-            name: "Pirate Parrot Teaser Wand".to_string(),
-            price: 8.99,
-            description: "Engage your cat in a playful pursuit with the Pirate Parrot Teaser Wand. The colorful feathers and jingling bells mimic the mischievous charm of a pirate's parrot.".to_string(),
-            image: "/pirate.jpg".to_string()
+            name: "Front-Load Washer with Steam".to_string(),
+            price: 849.99,
+            description: "Tackle tough laundry loads with multiple wash cycles, steam cleaning options, and energy-efficient performance designed for modern homes.".to_string(),
+            image: "/front-load-washer.jpg".to_string()
         },
         Product {
             id: 6,
-            name: "Seafarer's Tug Rope".to_string(),
-            price: 14.99,
-            description: "Tug-of-war meets nautical adventure with the Seafarer's Tug Rope. Made from marine-grade rope, it's perfect for interactive play and promoting dental health in dogs.".to_string(),
-            image: "/tug.jpg".to_string()
+            name: "Electric Dryer with Sensor Dry".to_string(),
+            price: 799.99,
+            description: "Dry clothes evenly with moisture sensors that help prevent over-drying while offering quick-dry, delicate, and heavy-duty cycle options.".to_string(),
+            image: "/electric-dryer.jpg".to_string()
         },
         Product {
             id: 7,
-            name: "Seashell Snuggle Bed".to_string(),
-            price: 19.99,
-            description: "Give your furry friend a cozy spot to curl up with the Seashell Snuggle Bed. Shaped like a seashell, this plush bed provides comfort and relaxation for cats and small dogs.".to_string(),
-            image: "/bed.jpg".to_string()
+            name: "Countertop Air Fryer Oven".to_string(),
+            price: 159.99,
+            description: "Cook crispy meals with less oil using this multi-function air fryer oven with presets for fries, chicken, vegetables, and reheating leftovers.".to_string(),
+            image: "/air-fryer-oven.jpg".to_string()
         },
         Product {
             id: 8,
-            name: "Nautical Knot Ball".to_string(),
-            price: 7.99,
-            description: "Unleash your dog's inner sailor with the Nautical Knot Ball. Made from sturdy ropes, it's perfect for fetching, tugging, and satisfying their chewing needs.".to_string(),
-            image: "/knot.jpg".to_string()
+            name: "Robot Vacuum with Smart Mapping".to_string(),
+            price: 329.99,
+            description: "Automate daily cleaning with smart navigation, app scheduling, and room mapping that helps the robot vacuum avoid obstacles and clean efficiently.".to_string(),
+            image: "/robot-vacuum.jpg".to_string()
         },
         Product {
             id: 9,
-            name: "Contoso Claw's Crabby Cat Toy".to_string(),
-            price: 3.99,
-            description: "Watch your cat go crazy for Contoso Claw's Crabby Cat Toy. This crinkly and catnip-filled toy will awaken their hunting instincts and provide endless entertainment.".to_string(),
-            image: "/crabby.jpg".to_string()
+            name: "Wi-Fi 7 Mesh Router 3-Pack".to_string(),
+            price: 449.99,
+            description: "Eliminate dead zones with whole-home Wi-Fi coverage, fast multi-gig performance, and simple app-based setup for streaming, gaming, and smart devices.".to_string(),
+            image: "/wifi7-mesh-router.jpg".to_string()
         },
         Product {
             id: 10,
-            name: "Ahoy Doggy Life Jacket".to_string(),
-            price: 5.99,
-            description: "Ensure your furry friend stays safe during water adventures with the Ahoy Doggy Life Jacket. Designed for dogs, this flotation device offers buoyancy and visibility in style.".to_string(),
-            image: "/lifejacket.jpg".to_string()
+            name: "Stainless Steel Dishwasher".to_string(),
+            price: 699.99,
+            description: "Clean more dishes with quieter operation, adjustable racks, and targeted spray zones that handle everything from glassware to heavy cookware.".to_string(),
+            image: "/dishwasher-stainless.jpg".to_string()
         }
     ]
 }
